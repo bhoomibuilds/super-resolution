@@ -1,0 +1,30 @@
+# Core Deep Learning
+torch==2.0.1
+torchvision==0.15.2
+triton==2.0.0
+# Super-Resolution Frameworks
+basicsr==1.4.2
+lmdb==2.2.0
+# Scientific Computing
+numpy==1.26.4
+scipy==1.15.3
+pandas==2.3.3
+xarray==2025.6.1
+netCDF4==1.7.4
+cftime==1.6.5
+# Machine Learning & Metrics
+scikit-learn==1.7.2
+# Image Processing
+opencv-python==4.13.0.92
+Pillow==12.1.1
+scikit-image==0.25.2
+imageio==2.37.2
+tifffile==2025.5.10
+# Visualization
+matplotlib==3.10.8
+seaborn==0.13.2
+# Utilities
+tqdm==4.67.3
+PyYAML==6.0.3
+requests==2.33.1
+sympy==1.14.0
