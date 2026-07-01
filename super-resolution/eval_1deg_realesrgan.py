@@ -133,9 +133,7 @@ def extract(data):
         return extract(data.item())
     return data
 
-############################################
-# LOAD CHECKPOINT (🔥 FIXED)
-############################################
+
 
 def load_model(model, ckpt_path, device):
 
@@ -143,7 +141,7 @@ def load_model(model, ckpt_path, device):
 
     print("Checkpoint keys:", ckpt.keys())
 
-    # Extract correct weights
+   
     if "generator" in ckpt:
         state_dict = ckpt["generator"]
     elif "state_dict" in ckpt:
@@ -151,7 +149,7 @@ def load_model(model, ckpt_path, device):
     else:
         state_dict = ckpt
 
-    # Remove "module." prefix if exists
+   
     new_state_dict = {}
     for k, v in state_dict.items():
         if k.startswith("module."):
@@ -160,7 +158,7 @@ def load_model(model, ckpt_path, device):
 
     model.load_state_dict(new_state_dict, strict=True)
 
-    print("✅ Model loaded successfully")
+    print(" Model loaded successfully")
 
     return model
 
@@ -204,9 +202,7 @@ def visualize(lr, sr, hr, save_path):
     plt.savefig(save_path, dpi=300)
     plt.close()
 
-############################################
-# MAIN
-############################################
+
 
 def evaluate():
 
@@ -218,39 +214,29 @@ def evaluate():
     model = load_model(model, CKPT_PATH, device)
     model.eval()
 
-    ##################################
-    # LOAD DATA
-    ##################################
+   
     lr = extract(np.load(find_file(VAL_LR, TARGET_DATE), allow_pickle=True))
     hr = extract(np.load(find_file(VAL_HR, TARGET_DATE), allow_pickle=True))
 
     lr = np.squeeze(lr).astype(np.float32)
     hr = np.squeeze(hr).astype(np.float32)
 
-    ##################################
-    # NORMALIZE
-    ##################################
+    
     lr_n = (lr - VMIN) / (VMAX - VMIN)
     hr_n = (hr - VMIN) / (VMAX - VMIN)
 
     lr_t = torch.tensor(lr_n).unsqueeze(0).unsqueeze(0).to(device)
     hr_t = torch.tensor(hr_n).unsqueeze(0).unsqueeze(0).to(device)
 
-    ##################################
-    # INFERENCE
-    ##################################
+    
     with torch.no_grad():
         sr = model(lr_t)
 
-    ##################################
-    # DENORMALIZE
-    ##################################
+   
     sr_c = sr * (VMAX - VMIN) + VMIN
     hr_c = hr_t * (VMAX - VMIN) + VMIN
 
-    ##################################
-    # METRICS
-    ##################################
+   
     rmse = compute_rmse(sr_c, hr_c)
     psnr = compute_psnr(sr_c, hr_c)
     corr = compute_correlation(sr_c, hr_c)
