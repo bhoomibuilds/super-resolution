@@ -3,7 +3,7 @@
 
 Welcome to the **Satellite Super-Resolution** repository. This project focuses on super-resolving Sea Surface Temperature (SST) and Wind velocity fields from low-resolution datasets (e.g., 1-degree resolution) to high-resolution grids. The project features **SatSuRE (Satellite Super-Resolution)** as the primary model architecture, along with evaluations and comparisons against other state-of-the-art super-resolution architectures: MDSR, RealESRGAN, SinSR, SRCNN, and SRGAN.
 
-This repository is structured similarly to standard PyTorch Deep Learning templates (inspired by `sgrvinod/a-pytorch-tutorial-to-super-resolution`) to ensure modularity, readability, and ease of reproducibility.
+
 
 ---
 
@@ -49,7 +49,7 @@ A single-image super-resolution model tailored for specific spatial scale patter
 ### 5. SRCNN
 The classic Super-Resolution Convolutional Neural Network consisting of three layers (patch extraction, non-linear mapping, reconstruction) acting as a foundational baseline.
 
-### 6. SRGAN
+### 6. SRGAN (super-Resolution Generative Adversarial Network )
 A Generative Adversarial Network incorporating SatSuRE as its generator and a truncated VGG-19 network for calculating perceptual loss alongside adversarial training.
 
 ---
