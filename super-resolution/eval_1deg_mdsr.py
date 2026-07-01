@@ -16,7 +16,7 @@ VAL_HR = f"{BASE}/val/HR"
 
 CKPT_DIR = "sst_ckpt_mdsr"   # folder containing all checkpoints
 
-CKPTS = list(range(1000, 6001, 500))  # same as others
+CKPTS = list(range(1000, 6001, 500)) 
 
 TARGET_DATE = "2017-01-01"
 
@@ -194,7 +194,7 @@ def evaluate_all():
             ckpt_path = f"{CKPT_DIR}/epoch_{epoch}.pth"
 
             if not os.path.exists(ckpt_path):
-                print(f"❌ Missing {ckpt_path}")
+                print(f" Missing {ckpt_path}")
                 continue
 
             print(f"\nEvaluating MDSR CKPT: {epoch}")
@@ -227,7 +227,7 @@ def evaluate_all():
             ##################################
             writer.writerow([epoch, rmse, psnr, ssim_val, corr])
 
-    print(f"\n✅ CSV saved → {CSV_OUT}")
+    print(f"\n CSV saved → {CSV_OUT}")
 
 ############################################
 
