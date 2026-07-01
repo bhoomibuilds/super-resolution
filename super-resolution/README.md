@@ -1,4 +1,5 @@
-# Satellite Super-Resolution (SatSuRE) for Oceanographic 
+# Satellite Super-Resolution (SatSuRE) for Oceanography
+
 
 Welcome to the **Satellite Super-Resolution** repository. This project focuses on super-resolving Sea Surface Temperature (SST) and Wind velocity fields from low-resolution datasets (e.g., 1-degree resolution) to high-resolution grids. The project features **SatSuRE (Satellite Super-Resolution)** as the primary model architecture, along with evaluations and comparisons against other state-of-the-art super-resolution architectures: MDSR, RealESRGAN, SinSR, SRCNN, and SRGAN.
 
